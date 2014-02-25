@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
 
 $script = <<SCRIPT
   ip=`ip addr list eth1 | grep "inet " | cut -d ' ' -f6 | cut -d/ -f1`
-  echo $ip | tee /etc/mesos/mesos-master/ip
+  echo $ip | tee /etc/mesos-master/ip
   exec restart mesos-master
 SCRIPT
   config.vm.provision "shell", inline: $script
